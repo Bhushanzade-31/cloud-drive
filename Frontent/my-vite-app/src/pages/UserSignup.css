@@ -1,0 +1,107 @@
+
+.p-7 {
+    padding: 1.75rem;
+  }
+  
+  .h-screen {
+    height: 100vh;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .flex-col {
+    flex-direction: column;
+  }
+  
+  .justify-between {
+    justify-content: space-between;
+  }
+  
+  input {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  button {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+  
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Form Container */
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  input {
+    background-color: #eeeeee;
+    border: 1px solid #ccc;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #111;
+    background-color: #f9f9f9;
+  }
+  
+  input::placeholder {
+    color: #777;
+  }
+  
+  /* First and Last Name Fields */
+  .flex.gap-4 input {
+    width: 48%;
+  }
+  
+  button {
+    background-color: #111;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #333;
+  }
+  
+  p {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: #555;
+  }
+  
+  /* Link Styling */
+  a {
+    color: #1d4ed8;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsiveness */
+  

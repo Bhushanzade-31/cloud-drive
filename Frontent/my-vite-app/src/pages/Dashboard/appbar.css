@@ -1,0 +1,98 @@
+.button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1976d2; 
+  padding: 10px 20px;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logout {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+.pop {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+
+#dropzone-file + label {
+  transition: background-color 0.2s ease;
+  width: 100%;
+  padding: 1.5rem;
+  background-color: #fafafa;
+  border: 2px dashed #b0bec5;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#dropzone-file + label:hover {
+  background-color: #f1f1f1;
+}
+
+
+.pop p {
+  text-align: center;
+  color: #546e7a;
+}
+
+
+.pop button {
+  margin-top: 10px;
+  text-transform: none;
+  font-weight: 500;
+}
+
+
+.pop a {
+  word-break: break-all;
+  color: #1e88e5;
+  text-decoration: underline;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+
+/* Optional storage section if used elsewhere */
+.storage {
+  height: 565px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eeeeee;
+}
+.refresh {
+  margin: 1rem;
+  border-radius: 8px;
+  text-transform: capitalize;
+}
