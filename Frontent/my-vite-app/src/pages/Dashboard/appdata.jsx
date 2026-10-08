@@ -11,7 +11,7 @@ const AppData = () => {
     const fetchUserImages = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:4000/users/user", {
+        const response = await fetch(`${import.meta.env.VITE_BASE_URL}/users/user`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,

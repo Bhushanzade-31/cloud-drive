@@ -56,7 +56,7 @@ const MenuAppBar = ({ user }) => {
 
       // Send to backend
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:4000/users/upload-url", {
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/users/upload-url`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
