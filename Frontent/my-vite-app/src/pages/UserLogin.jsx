@@ -56,6 +56,7 @@ const UserLogin = () => {
             }}
             className='bg-[#eeeeee] mb-7 rounded-lg px-4 py-2 border w-full text-lg placeholder:text-base'
             type="email"
+            autoComplete="email"
             placeholder='email@example.com'
           />
 
@@ -68,6 +69,7 @@ const UserLogin = () => {
               setPassword(e.target.value)
             }}
             required type="password"
+            autoComplete="current-password"
             placeholder='password'
           />
 

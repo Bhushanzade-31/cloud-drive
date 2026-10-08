@@ -19,13 +19,25 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-connectToDb();
-
 app.get('/',(req,res)=>{
     res.send('hello');
 });
-app.use('/users',userRoutes);
+app.use('/users', async (req, res, next) => {
+    try {
+        await connectToDb();
+        next();
+    } catch (error) {
+        next(error);
+    }
+}, userRoutes);
 
+app.use((error, req, res, next) => {
+    console.error(`Request failed: ${req.method} ${req.originalUrl}`, error);
+    if (res.headersSent) {
+        return next(error);
+    }
+    res.status(500).json({ message: 'Internal server error' });
+});
 
   
 module.exports = app;

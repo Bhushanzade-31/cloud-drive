@@ -77,6 +77,7 @@ const UserSignup = () => {
                 type="text"
                 placeholder='First name'
                 minLength={3}
+                autoComplete="given-name"
                 value={firstName}
                 onChange={(e) => {
                   setFirstName(e.target.value)
@@ -87,6 +88,7 @@ const UserSignup = () => {
                 className='bg-[#eeeeee] w-1/2  rounded-lg px-4 py-2 border  text-lg placeholder:text-base'
                 type="text"
                 placeholder='Last name'
+                autoComplete="family-name"
                 value={lastName}
                 onChange={(e) => {
                   setLastName(e.target.value)
@@ -103,6 +105,7 @@ const UserSignup = () => {
               }}
               className='bg-[#eeeeee] mb-7 rounded-lg px-4 py-2 border w-full text-lg placeholder:text-base'
               type="email"
+              autoComplete="email"
               placeholder='email@example.com'
             />
 
@@ -116,6 +119,7 @@ const UserSignup = () => {
                 setPassword(e.target.value)
               }}
               required type="password"
+              autoComplete="new-password"
               placeholder='password'
             />
 
