@@ -12,6 +12,7 @@ const UserSignup = () => {
   const [ firstName, setFirstName ] = useState('')
   const [ lastName, setLastName ] = useState('')
   const [ userData, setUserData ] = useState({})
+  const [ signupError, setSignupError ] = useState('')
 
   const navigate = useNavigate()
 
@@ -34,20 +35,29 @@ const UserSignup = () => {
     }
 
    
-    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/register`, newUser)
+    setSignupError('')
 
-    if (response.status === 201) {
-      const data = response.data
-      setUser(data.user)
-      localStorage.setItem('token', data.token)
-      navigate('/home')
+    try {
+      const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/register`, newUser)
+
+      if (response.status === 201) {
+        const data = response.data
+        setUser(data.user)
+        localStorage.setItem('token', data.token)
+        navigate('/home')
+        setEmail('')
+        setFirstName('')
+        setLastName('')
+        setPassword('')
+      }
+    } catch (error) {
+      const validationMessages = error.response?.data?.errors?.map(({ msg }) => msg)
+      const message = validationMessages?.join('. ')
+        || error.response?.data?.message
+        || 'Could not create your account. Please try again.'
+
+      setSignupError(message)
     }
- 
-
-    setEmail('')
-    setFirstName('')
-    setLastName('')
-    setPassword('')
 
   }
   return (
@@ -66,6 +76,7 @@ const UserSignup = () => {
                 className='bg-[#eeeeee] w-1/2 rounded-lg px-4 py-2 border  text-lg placeholder:text-base'
                 type="text"
                 placeholder='First name'
+                minLength={3}
                 value={firstName}
                 onChange={(e) => {
                   setFirstName(e.target.value)
@@ -100,6 +111,7 @@ const UserSignup = () => {
             <input
               className='bg-[#eeeeee] mb-7 rounded-lg px-4 py-2 border w-full text-lg placeholder:text-base'
               value={password}
+              minLength={6}
               onChange={(e) => {
                 setPassword(e.target.value)
               }}
@@ -110,6 +122,7 @@ const UserSignup = () => {
             <button
               className='bg-[#111] text-white font-semibold mb-3 rounded-lg px-4 py-2 w-full text-lg placeholder:text-base'
             >Create account</button>
+          {signupError && <p className='mb-3 text-red-600' role='alert'>{signupError}</p>}
           <p className='text-center'>Already have a account? <Link to='/login' className='text-blue-600'>Login here</Link></p>
           </form>
           
